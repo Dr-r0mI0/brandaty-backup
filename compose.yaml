@@ -1,0 +1,16 @@
+services:
+  backup-manager:
+    build: .
+    container_name: brandaty-backup-manager
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /backup/docker:/backup/docker
+      - /root/scripts:/root/scripts
+      - ./data:/data
+    environment:
+      - DB_PATH=/data/database.sqlite
+      - PORT=3000
+      - JWT_SECRET=brandaty_secret_${RANDOM_KEY}

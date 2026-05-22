@@ -1,0 +1,21 @@
+services:
+  # The main backend service (keeps running API & Database)
+  backup-manager:
+    container_name: brandaty-backup-manager
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+
+  # New Frontend Dev Server (Hot Reloading)
+  frontend-dev:
+    image: node:18-alpine
+    container_name: brandaty-frontend-dev
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_TARGET=http://brandaty-backup-manager:3000
+    command: sh -c "npm install && npm run dev -- --host"

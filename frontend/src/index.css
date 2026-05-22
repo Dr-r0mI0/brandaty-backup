@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================================
+   BRANDATY BACKUP MANAGER - THEME CONFIGURATION
+   
+   Edit the variables below to customize your theme.
+   After editing, rebuild and deploy the application.
+   ============================================================================= */
+
+:root {
+    /* ==================== COLORS ==================== */
+    
+    /* Primary Colors (Buttons, Links, Active States) */
+    --color-primary: #2c0b73;
+    --color-primary-focus: #4506cb;
+    --color-primary-content: #ffffff;
+    
+    /* Secondary Colors */
+    --color-secondary: #ff6f00;
+    --color-secondary-focus: #bd0091;
+    --color-secondary-content: #ffffff;
+    
+    /* Accent Colors */
+    --color-accent: #e4fd00;
+    --color-accent-focus: #94a72a;
+    --color-accent-content: #163835;
+    
+    /* Neutral Colors (Background, Cards) */
+    --color-neutral: #2a323c;
+    --color-neutral-focus: #16181d;
+    --color-neutral-content: #ffffff;
+    
+    /* Base Colors (Page Background, Content) */
+    --color-base-100: #ffffff;
+    --color-base-200: #f2f2f2;
+    --color-base-300: #e5e6e6;
+    --color-base-content: #1f2937;
+    
+    /* Status Colors */
+    --color-success: #36d399;
+    --color-success-content: #003320;
+    --color-warning: #fbbd23;
+    --color-warning-content: #382800;
+    --color-error: #f87272;
+    --color-error-content: #470000;
+    --color-info: #3abff8;
+    --color-info-content: #002b3d;
+    
+    /* ==================== TYPOGRAPHY ==================== */
+    
+    /* Font Families */
+    --font-family-sans: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    --font-family-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    
+    /* Font Sizes */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* ==================== SPACING ==================== */
+    
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* ==================== BORDERS ==================== */
+    
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+    --border-radius-xl: 1.5rem;
+    --border-radius-full: 9999px;
+    
+    --border-width: 1px;
+    --border-color: var(--color-base-300);
+    
+    /* ==================== SHADOWS ==================== */
+    
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    
+    /* ==================== TRANSITIONS ==================== */
+    
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+    --transition-slow: 300ms ease;
+    
+    /* ==================== SERVICE COLORS ==================== */
+    
+    --color-magento: #f46f25;
+    --color-prestashop: #df0067;
+    --color-odoo: #714b67;
+    --color-npm: #009639;
+    --color-wordpress: #21759b;
+    
+    /* ==================== LAYOUT ==================== */
+    
+    --sidebar-width: 18rem;
+    --header-height: 4rem;
+    --max-content-width: 80rem;
+    
+    /* ==================== CUSTOM ==================== */
+    --color-logo: #000000; /* Deep Blue for Light Mode */
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+    --color-base-100: #1d232a;
+    --color-base-200: #191e24;
+    --color-base-300: #15191e;
+    --color-base-content: #a6adba;
+    
+    --color-neutral: #2a323c;
+    --color-neutral-content: #a6adba;
+    
+    --border-color: #374151;
+    
+    --color-logo: #ffffff; /* White for Dark Mode */
+}
+
+/* =============================================================================
+   CUSTOM COMPONENT STYLES
+   ============================================================================= */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-base-200);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-base-300);
+    border-radius: var(--border-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neutral);
+}
+
+/* Stat value font size*/
+.stat-value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    
+}
+
+
+/* Console/Log styling */
+.mockup-code {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+}
+
+/* Service card borders */
+.service-card-magento { border-left-color: var(--color-magento); }
+.service-card-prestashop { border-left-color: var(--color-prestashop); }
+.service-card-odoo { border-left-color: var(--color-odoo); }
+.service-card-npm { border-left-color: var(--color-npm); }
+
+/* Smooth transitions */
+.btn, .card, .badge {
+    transition: all var(--transition-normal);
+}
+
+/* Progress bar animation */
+.progress {
+    transition: width var(--transition-slow);
+}
