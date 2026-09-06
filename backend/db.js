@@ -37,9 +37,10 @@ const init = () => {
             });
 
             if (!adminExists) {
-                const hash = await bcrypt.hash('admin123', 10); // Default password
+                const defaultPassword = process.env.DEFAULT_ADMIN_PASSWORD || 'admin123';
+                const hash = await bcrypt.hash(defaultPassword, 10);
                 db.run("INSERT INTO users (username, password) VALUES (?, ?)", ['admin', hash]);
-                console.log("Default admin user created: admin/admin123");
+                console.log(`Default admin user created: admin/${defaultPassword}`);
             }
 
             // Default Settings
