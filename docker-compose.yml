@@ -1,0 +1,32 @@
+services:
+  brandaty-backup:
+    image: brandaty-backup:local
+    container_name: brandaty-backup
+    restart: unless-stopped
+    # يحتاج docker socket لتنفيذ/استعادة النسخ — قرارات مقصودة مش سهوة
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /backup/docker:/backup/docker
+      - /root/scripts:/root/scripts:ro
+      - brandaty-backup-data:/data
+    environment:
+      - DB_PATH=/data/database.sqlite
+      - DEFAULT_ADMIN_PASSWORD=admin123
+      - PORT=3000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 384M
+    networks:
+      - nginx-proxy-manager_default
+      - unified_default
+
+volumes:
+  brandaty-backup-data:
+
+networks:
+  nginx-proxy-manager_default:
+    external: true
+  unified_default:
+    external: true
